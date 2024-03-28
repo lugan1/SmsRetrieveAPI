@@ -1,0 +1,80 @@
+package com.example.smsretriverstudy.data.enumeration
+
+enum class ErrorCode(val status: Int, val code: String) {
+
+    //Common
+    INTERNAL_SERVER_ERROR(500, "C001"),
+    INVALID_INPUT_VALUE(400, "C002"),
+    METHOD_NOT_ALLOWED(405, "C003"),
+    INVALID_TYPE_VALUE(400, "C004"),
+    UNAUTHORIZED(401, "C005"),
+    USER_NUMBER_ALREADY_EXISTS(409, "C006"),
+    AUTH_CHECK_TIMEOUT(400, "C007"),
+    AUTHENTICATION_RESOURCE_NOT_FOUND(401, "C008"),
+    UNCERTIFIED_PHONE_NUMBER(401, "C009"),
+    DATA_NOT_EXIST(404, "C010"),
+    MESSAGE_SEND_ERROR(500, "C010"),
+    SNS_LOGIN_PROCESSING_ERROR(500, "C011"),
+    INTERNAL_AUTHENTICATION(500, "C012"),
+    ILLEGAL_SMS_CHECK_CODE(401, "C013"),
+    VERIFICATION_PASSWORD(401, "C014"),
+    MISSING_PARAMETER(400, "C015"),
+
+    //User
+    USER_ALREADY_EXIST(409, "U001"),
+    USER_LOGIN_ID_ALREADY_EXISTS(409, "U002"),
+    NO_AUTHORITY(403, "U003"),
+    NEED_LOGIN(401, "U004"),
+    AUTHENTICATION_NOT_FOUND(401, "U005"),
+    USER_ALREADY_LOGOUT(400, "U006"),
+    USER_NOT_FOUND(404, "U007"),
+    DO_NOT_CREATE_FILE(500, "U008"),
+    DO_NOT_DELETE_FILE(404, "U009"),
+    PREVIOUSLY_USED_PASSWORD(409, "U010"),
+    INVALID_PASSWORD(400, "U011"),
+
+    //profile
+    PROFILE_NOT_MATCH_USER(404, "P001"),
+    PROFILE_NOT_FOUND(404, "P002"),
+    PROFILE_PHOTO_NOT_FOUND(404, "P012"),
+
+    //temperature
+    DATE_ALREADY_EXIST(409, "T001"),
+
+
+    //security
+    INVALID_TOKEN(401, "S001"),
+    EXPIRED_TOKEN(401, "S002"),
+    UNSUPPORTED_TOKEN(401, "S003"),
+    ILLEGAL_ARGUMENT_TOKEN(401, "S004"),
+    NOT_FOUND(404, "S005"),
+
+    //system
+    MAX_UPLOAD_SIZE_EXCEED(400, "SY001"),
+    CONVERTER_ERROR(404, "SY002"),
+
+    //etc
+    NO_APP_VERSION_DATA(404,"E001"),
+    SEND_NOTIFICATION_ERROR(404, "E002"), // 해당 메시지는 sendNotificationException에 존재
+    USER_FCMTOKEN_NOT_EXIST(404, "E003"), // 해당 메시지는 userFCMTokenNotExistException에 존재
+
+    NOT_SUPPORTED_MEDIA_TYPE(400, "C016"),
+    CONVERTED_FAIL(500, "C017"),
+    DATA_INTEGRITY_CONSTRAINT_VIOLATION(409, "C018"),
+    EXCEEDED_SEND_SMS(400, "C019"), // 에러 메시지 변수 처리로 Exception발생 위치에 존재
+
+    INVALID_AUTHENTICATION(404, "S006"),
+    ACCESS_DENIED(406, "S007"),
+    EXCEEDED_NUMBER_OF_PHOTOS(400, "SYM001"),
+    DO_NOT_LOGIN_WITHDRAWAL_USER(403, "SE001"),
+    USER_FCM_TOKEN_NOT_EXIST(404, "E003"),
+
+    UNKNOWN(500, "UNKNOWN");
+
+    companion object {
+        fun fromCode(code: String?): ErrorCode {
+            if(code == null) return UNKNOWN
+            return entries.find { it.code == code } ?: UNKNOWN
+        }
+    }
+}

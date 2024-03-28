@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SMSRetriverStudy</string>
+    <string name="auth_check_timeout">인증번호가 만료되었습니다.</string>
+    <string name="bad_request">잘못된 요청입니다.</string>
+    <string name="sms_verify_failed">인증 번호가 일치하지 않습니다.</string>
+    <string name="internal_server_error">서버 오류가 발생했습니다.</string>
+    <string name="duplicate_user">이미 가입된 회원입니다</string>
+    <string name="exceeded_send_sms">SMS 요청 횟수를 초과하여, 메세지를 보낼 수 없습니다.\\n잠시후에 다시 시도해주세요.\n요청 남은 시간 : (%1$s)분</string>
+    <string name="login_auth_failed_blocked">해당 계정으로 가입된 계정이 운영 방침에 의해 차단되었거나 회원탈퇴 규정에 따라 탈퇴한 지 1개월이 지나지 않은 계정으로 가입이 불가합니다</string>
+</resources>
