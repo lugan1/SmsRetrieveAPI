@@ -58,7 +58,7 @@ android {
 }
 
 fun ApplicationDefaultConfig.loadEnvKey() {
-    val key = "BASE_URL"
+    val key = "LOCAL_URL"
     val value = gradleLocalProperties(rootDir, providers).getProperty(key)
     buildConfigField("String", key, requireNotNull(value))
 }
@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
+    implementation(libs.identity.credential.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -108,7 +109,10 @@ dependencies {
     implementation (libs.okhttp)
     implementation (libs.logging.interceptor)
 
-
     // API 24 이상에서만 지원하는 Java8 라이브러리 대체
     coreLibraryDesugaring (libs.desugar.jdk.libs)
+
+    // SMS Retriver API
+    implementation (libs.play.services.auth)
+    implementation (libs.play.services.auth.api.phone)
 }

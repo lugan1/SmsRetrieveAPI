@@ -41,7 +41,7 @@ object RetrofitModule {
     ): Retrofit
         = Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BuildConfig.LOCAL_URL)
             .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(MoshiConverterFactory.create())
             .build()

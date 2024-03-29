@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:name=".SMSApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SMSRetriverStudy"
         tools:targetApi="31">
+        <receiver
+            android:name=".SMSReceiver"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
